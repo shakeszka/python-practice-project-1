@@ -8,6 +8,7 @@ import pickle
 import os
 from Friend import *
 
+# Just checking how git works
 
 def write_number_of_friends():
     # Using a while loop to iterate until a condition is met
