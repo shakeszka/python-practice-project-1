@@ -11,6 +11,8 @@ store the data in the file, and get any friend from this file. It also has a fun
 to their GPA.
 
 ### What did I learn during while working on this project?
-1. Learnt how to use Pickle module
-2. Useful PyCharm shortcuts(e.g. "Ctrl" + "/")
-3. Practiced using Classes and functions
+1. Learnt how to use Pickle module(even though later I realized I don't really need it)
+2. Got acquainted with the basics principles of Python PEP(the length of the line, naming conventions, the space betweent the lines)
+3. Useful PyCharm shortcuts(e.g. "Ctrl" + "/")
+4. Practiced using Classes and functions(class inheritance, multilevel inhertitance, variable overwriting, super function etc.)
+
