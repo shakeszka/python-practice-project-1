@@ -3,10 +3,11 @@
 # Class names should normally use the CapWords convention
 # I learnt how to use pickle module to save
 
-import pickle
-# importing os to remove a file
-import os
+
 from Friend import *
+
+list_of_friends = {}
+
 
 def write_number_of_friends():
     # Using a while loop to iterate until a condition is met
@@ -25,13 +26,6 @@ def write_number_of_friends():
                 continue
 
     print(f"The number of friends: {number_of_friends}")
-
-
-def display_the_list():
-    for i in range(number_of_friends):
-        with open('friends_data.pkl', 'rb') as inp:
-            data = pickle.load(inp)
-
 
 
 def check_the_inputs(friend_number):
@@ -72,6 +66,16 @@ def check_the_inputs(friend_number):
                                     return name.upper(), age, height, float(gpa)
 
 
+def display_the_list():
+    count = 1
+
+    for friend in list_of_friends.keys():
+        print(f"{count}.", end=" ")
+        # Getting the values from the Class
+        print(f"{list_of_friends.get(friend.__str__())}")
+        count += 1
+
+
 def create_friends():
     number_of_friends = write_number_of_friends()
 
@@ -79,28 +83,10 @@ def create_friends():
         # Checking if the input is the right format
         friend = check_the_inputs(i)
 
-        # adding to a file
-        with open('friends_data.pkl', 'wb') as outp:
-            Friend(friend[0], friend[1], friend[2], friend[3])
-            pickle.dump(friend, outp, pickle.HIGHEST_PROTOCOL)
-
-
-# def display():
-#     while True:
-#         name = input("Who do you want to check? ").upper()
-#
-#         if name in list_of_friends:
-#             pass
-#         else:
-#             print(f"{name} is not in the list of friends")
+        # We get a tuple looking like this: friend(name, age, height, gpa). it is ordered and unchangeable
+        list_of_friends[friend[0]] = list_of_friends.get(friend[0], Friend(name=friend[0], age=friend[1],
+                                                                           height=friend[2], gpa=friend[3]))
 
 
 create_friends()
-
-with open('friends_data.pkl', 'rb') as inp:
-    data = pickle.load(inp)
-    print(data)
-
-os.remove("friends_data.pkl")
-
-
+display_the_list()
